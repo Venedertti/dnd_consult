@@ -31,8 +31,8 @@ src/
 
 1. Clone the repository:
    ```bash
-   git clone <your-repository>
-   cd <project-directory>
+   git clone https://github.com/Venedertti/dnd_consult.git
+   cd .../dnd_consult
    ```
 
 2. Start the containers with Docker Compose:
