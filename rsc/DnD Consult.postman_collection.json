@@ -1,79 +1,130 @@
 {
 	"info": {
-		"_postman_id": "5c6d0447-55b9-4812-bdac-8a2f9bdf471e",
+		"_postman_id": "499eeb2f-bf27-4c44-90a7-45cea0a6db32",
 		"name": "DnD Consult",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "12390627"
 	},
 	"item": [
 		{
-			"name": "Get Spell",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://127.0.0.1:5000/spells/get/1"
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Spells",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://127.0.0.1:5000/spells/getAll"
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Spell",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": "http://127.0.0.1:5000/spells/delete/2"
-			},
-			"response": []
-		},
-		{
-			"name": "Update spell",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Fireball\",\r\n  \"level\": 3,\r\n  \"school\": \"Evocation\",\r\n  \"casting_time\": \"1 action\",\r\n  \"range\": \"150 feet\",\r\n  \"components\": \"V, S, M (a tiny ball of bat guano and sulfur)\",\r\n  \"duration\": \"Instantaneous\",\r\n  \"description\": \"A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.\",\r\n  \"classes\": [\"Wizard\", \"Sorcerer\", \"Artificer\"], \r\n  \"source\": \"Player's Handbook\",\r\n  \"is_homebrew\": false,\r\n  \"is_ritual\": false,\r\n  \"requires_concentration\": false,\r\n  \"image_url\": \"https://example.com/spells/fireball.png\",\r\n  \"created_by\": \"DungeonMaster01\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "Spells",
+			"item": [
+				{
+					"name": "Get Spell",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:5000/spells/get/5"
+					},
+					"response": []
 				},
-				"url": "http://127.0.0.1:5000/spells/update/1"
-			},
-			"response": []
+				{
+					"name": "Get All Spells",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:5000/spells/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Spell",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:5000/spells/delete/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update spell",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Fireball\",\r\n  \"level\": 3,\r\n  \"school\": \"Evocation\",\r\n  \"casting_time\": \"1 action\",\r\n  \"range\": \"150 feet\",\r\n  \"components\": \"V, S, M (a tiny ball of bat guano and sulfur)\",\r\n  \"duration\": \"Instantaneous\",\r\n  \"description\": \"A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.\",\r\n  \"classes\": [\"Wizard\", \"Sorcerer\", \"Artificer\"], \r\n  \"source\": \"Player's Handbook\",\r\n  \"is_homebrew\": false,\r\n  \"is_ritual\": false,\r\n  \"requires_concentration\": false,\r\n  \"image_url\": \"https://example.com/spells/fireball.png\",\r\n  \"created_by\": \"DungeonMaster01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/spells/update/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Spell",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Fireball\",\r\n  \"level\": 3,\r\n  \"school\": \"Evocation\",\r\n  \"casting_time\": \"1 action\",\r\n  \"range\": \"150 feet\",\r\n  \"components\": \"V, S, M\",\r\n  \"duration\": \"Instantaneous\",\r\n  \"description\": \"A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of fire.\",\r\n  \"classes\": [\r\n    \"Sorcerer\",\r\n    \"Wizard\"\r\n  ],\r\n  \"source\": \"Player's Handbook\",\r\n  \"is_homebrew\": false,\r\n  \"is_ritual\": false,\r\n  \"requires_concentration\": false,\r\n  \"image_url\": \"https://path_to_image.com/fireball.jpg\",\r\n  \"created_by\": \"system\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/spells/create"
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"name": "Create Spell",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Fireball\",\r\n  \"level\": 3,\r\n  \"school\": \"Evocation\",\r\n  \"casting_time\": \"1 action\",\r\n  \"range\": \"150 feet\",\r\n  \"components\": \"V, S, M\",\r\n  \"duration\": \"Instantaneous\",\r\n  \"description\": \"A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of fire.\",\r\n  \"classes\": [\r\n    \"Sorcerer\",\r\n    \"Wizard\"\r\n  ],\r\n  \"source\": \"Player's Handbook\",\r\n  \"is_homebrew\": false,\r\n  \"is_ritual\": false,\r\n  \"requires_concentration\": false,\r\n  \"image_url\": \"https://path_to_image.com/fireball.jpg\",\r\n  \"created_by\": \"system\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "Automations",
+			"item": [
+				{
+					"name": "Monitor Process",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:5000/automate/monitor/b7d6a7d2-15b3-4231-ba46-7135c9f46bcb"
+					},
+					"response": []
 				},
-				"url": "http://127.0.0.1:5000/spells/create"
-			},
-			"response": []
+				{
+					"name": "Bulk Open5e SDR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://127.0.0.1:5000/automate/dnd/import/Open5E_SDR"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Open5e SDR",
+			"item": [
+				{
+					"name": "SDR - Get Spell",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://www.dnd5eapi.co/api/spells/shield"
+					},
+					"response": []
+				},
+				{
+					"name": "SDR - Get All Spells",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://www.dnd5eapi.co/api/spells"
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
