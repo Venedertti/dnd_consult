@@ -1,11 +1,10 @@
 import logging
 from src.database import db
 from flask import current_app
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 from src.database.spell_model import Spell
 from src.database.classes_model import Classes
-from src.database.relational_spell_class_model import RelationalSpellClass
+from src.database.rel_spell_class_model import RelationalSpellClass
 
 class SpellService:
 

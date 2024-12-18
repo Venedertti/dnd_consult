@@ -9,7 +9,7 @@ class Classes(db.Model):
 
     spells = db.relationship(
         'Spell',
-        secondary='relational_spell_class',
+        secondary='rel_spell_class',
         back_populates='classes',
         overlaps='classes_,spells_'
     )

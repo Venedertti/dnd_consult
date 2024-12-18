@@ -1,7 +1,7 @@
-from src.automations import open5e_sdr
 from flask import Blueprint, request, jsonify
 from src.service.spell_service import SpellService
 from src.service.classes_service import ClassesService
+from src.database.import_process_model import ImportProcess
 
 spell_bp = Blueprint('spell', __name__)
 
@@ -28,17 +28,6 @@ def create_spell():
 }), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-@spell_bp.route('/automate/', methods=['POST'])
-def bulkImportOpen5eSDR():
-    source= data['source']
-    data= request.get_json()
-    
-    result= ''
-    if source == 'Open5E SDR':
-        result = open5e_sdr.import_massive()
-    
-    return jsonify({'logs':result}), 200
 
 @spell_bp.route('/getAll', methods=['GET'])
 def get_spells():

@@ -24,6 +24,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ImRoot_2024
       POSTGRES_DB: dnd_consult
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
     ports:
       - 5432:5432
     healthcheck:

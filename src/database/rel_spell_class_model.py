@@ -1,7 +1,7 @@
 from src.database import db
 
 class RelationalSpellClass(db.Model):
-    __tablename__ = 'relational_spell_class'
+    __tablename__ = 'rel_spell_class'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     spell_id = db.Column('spell_id', db.Integer, db.ForeignKey('spells.id'), nullable=False)

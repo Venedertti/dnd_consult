@@ -24,7 +24,7 @@ class Spell(db.Model):
 
     classes = db.relationship(
         'Classes',
-        secondary='relational_spell_class',
+        secondary='rel_spell_class',
         back_populates='spells',
         overlaps='spells_,classes_',
         cascade="all, delete",
