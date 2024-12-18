@@ -16,7 +16,6 @@ scripts/
 src/
   ├── Dockerfile
   ├── __init__.py
-  ├── automations/
   ├── controller/
   ├── database/
   └── service/
@@ -169,20 +168,41 @@ This script performs the following steps:
    }
    ```
 
-7. **Bulk import data from Open5E** (NOT FUNCTIONAL)  
-   **Route:** POST `/spells/automate/`  
-   **Payload:**
-   ```json
-   {
-       "source": "Open5E SDR"
-   }
-   ```
+7. **Bulk Import from Open5E Source**  
+   **Route:** POST `/dnd/import/<string:source>`  
+   **Request Parameters:**
+   - **source (path parameter):** The name of the external data source (e.g., Open5E_SDR).
+
+   **Description:**
+   - Starts a new import process for the specified source.
+   - Creates a new process entry in the system.
+   - The import operation is performed asynchronously in a separate thread to avoid blocking the main thread.
+
    **Response:**
    ```json
    {
-       "logs": "Import successful"
+       "message": "Process started",
+       "process_id": "96349075-b0e0-4fdc-9e29-bc8444440a58"
    }
    ```
+   
+8. **Monitor Bulk Import Status**  
+   **Route:** GET `/monitor/<string:process_id>`  
+   **Request Parameters:**
+   - **process_id (path parameter):** The unique identifier of the import process.
+
+   **Description:**
+   - Retrieves the status of the import process by querying the system using the given process_id.
+   - Returns information such as whether the process is still ongoing, completed, or encountered an error.
+
+   **Response:**
+   ```json
+   {
+       "status": "completed",
+       "message": "Import process completed successfully"
+   }
+
+
 
 ## 🛠️ Included Tools
 - **Adminer:** Access the database using the browser at [http://localhost:8080](http://localhost:8080).
